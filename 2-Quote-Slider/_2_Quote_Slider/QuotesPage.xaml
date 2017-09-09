@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_2_Quote_Slider.QuotesPage">
+            
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android">20,30,20,20</On>
+                    <On Platform="WinPhone">20,40,20,20</On>
+                    <On Platform="iOS">20,20,20,20</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            
+            <Button x:Name="Next" 
+                    Text="Next" 
+                    Clicked="Next_OnClicked"/>
+            
+            <Slider x:Name="Slider" 
+                    Maximum="50" 
+                    Minimum="16"/>
+            
+            <Label x:Name="Label"
+                   BindingContext="{x:Reference Slider}"
+                   Text="No quotes loaded ..." 
+                   FontSize="{Binding Value}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
